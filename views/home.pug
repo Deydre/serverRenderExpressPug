@@ -13,6 +13,6 @@ html(lang="en")
             form(action="/film" method="POST")
             p Title:
             input(type="text" name="title" placeholder="Search by title")
-            button
+            button(type="submit" method="POST") SEARCH
         include ./footer.pug
         script(src="/js/script.js")
