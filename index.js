@@ -15,6 +15,7 @@ const pelisWebRoutes = require("./routes/pelis.web.routes.js")
 
 // -- PUG TEMPLATE /  // localhost:3000/home etc.
 app.use('/', pelisWebRoutes);
+// app.use('/film', pelisWebRoutes);
 
 app.listen(port, () => {
     console.log(`Example app listening on http://localhost:${port}`);

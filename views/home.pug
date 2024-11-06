@@ -10,9 +10,8 @@ html(lang="en")
     body
         main
             h1= "Search a movie!"
-            form(action="/film" method="POST")
-            p Title:
-            input(type="text" name="title" placeholder="Search by title")
-            button(type="submit" method="POST") SEARCH
+            form(action="/film" method="post")
+                p Title:
+                input(type="text" name="title" placeholder="Search by title")
+                button(type="submit") SEARCH
         include ./footer.pug
-        script(src="/js/script.js")
