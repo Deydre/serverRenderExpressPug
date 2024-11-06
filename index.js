@@ -6,6 +6,9 @@ const port = 3000;
 app.use(express.json()); // Middleware para parsear el body de las peticiones
 app.use(express.static('public')); // Middleware para servir archivos estáticos de JS, styles, assets, ...
 
+// Configuración de express.urlencoded como middleware
+app.use(express.urlencoded({ extended: false }));
+
 // -- CONFIGURACIÓN DE VISTAS - MOTOR DE PLANTILLAS
 app.set('view engine', 'pug');
 app.set('views', './views');
