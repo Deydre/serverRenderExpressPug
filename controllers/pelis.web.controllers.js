@@ -12,12 +12,6 @@ const getHome = (req, res) => {
     }
 }
 
-// // Probar API
-// getFilmFromAPI("inception").then(resultado => {
-//     console.log(resultado)
-// })
-
-
 const getFilm = async (req, res) => {
     try {
         // Realizar la solicitud a la API
@@ -30,6 +24,8 @@ const getFilm = async (req, res) => {
 
         // Si la respuesta es exitosa, procesar los datos
         const data = await response.json();
+        let img;
+        data.Poster == "N/A" ? img = "/media/imgNotFound.jpg" : img = data.Poster;
         //data.results nos devuelve un array de objetos, que habrá que pintar en el DOM
         res.status(200).render('film.pug', {
             title: data.Title,
@@ -37,7 +33,7 @@ const getFilm = async (req, res) => {
             actors: data.Actors,
             plot: data.Plot,
             genre: data.Genre,
-            src: data.Poster,
+            src: img,
             awards: data.Awards
         });
 
@@ -52,8 +48,8 @@ const searchFilm = async (req, res) => {
     try {
         // Realizar la solicitud a la API
         const title = req.body.title;
-        res.redirect(`/film/${title}`);
-
+        // validar si el título está vacío o no y tmb en script.js en front
+        res.redirect(`/film/${title}`); // Como window.location del front
     }
     catch (error) {
         console.log(`ERROR: ${error.stack}`);

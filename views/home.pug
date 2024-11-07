@@ -12,5 +12,5 @@ html(lang="en")
             section
                 h1= "Search a movie!"
                 form(action="/film" method="post")
-                    input(type="text" name="title" placeholder="Search by title")
+                    input(type="text" name="title" placeholder="Search by title" required)
                     button(type="submit") SEARCH
